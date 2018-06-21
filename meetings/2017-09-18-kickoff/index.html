@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>redbackup</title>
+    <meta name="description" content="redbackup - The redundant distributed backup solution.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../css/spectre.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <header class="container grid-960 navbar">
+      <section class="navbar-banner column col-1 col-md-2 col-xs-12">
+        <a class="navbar-brand" href="../../"><img src="../../images/redback.png" class="logo"/></a>
+      </section>
+      <section class="navbar-banner column col-5 col-md-10 col-xs-12">
+        <a href="../../" class="navbar-brand"><span class="red">red</span>backup <span class="sub">redundant distributed backups</span></a>
+      </section>
+      <section class="column col-3 col-md-6 col-xs-12">
+          <ul>
+              <li><a href="../../index.html" class="btn btn-link">🏠 Home</a></li>
+              <li><a href="../../overview/index.html" class="btn btn-link">🔭 Overview</a></li>
+              <li><a href="../../development/index.html" class="btn btn-link">⚙️ Development</a></li>
+              <li>
+          </ul>
+      </section>
+      <section class="column col-3 col-md-6 col-xs-12">
+          <ul>
+              <li><a href="https://project.redbackup.org/projects/REDPRO" class="btn btn-link">🗃 Project Tracker</a></li>
+              <li><a href="https://git.redbackup.org/projects/RED" class="btn btn-link">📄 Source Code</a></li>
+              <li><a href="https://ci.redbackup.org/browse/RED-REDPRO/latestSuccessful/artifact" class="btn btn-link">🏗️ Binary Builds</a></li>
+          </ul>
+      </section>
+    </header>
+  <section class="container grid-960">
+<h1>Meeting Minutes</h1>
+
+<div class="columns meeting-overview">
+    <div class="column col-6 meta-title">Date</div>
+    <div class="column col-6">18.09.2017</div>
+    <div class="column col-6 meta-title">Time</div>
+    <div class="column col-6">08:00 - 10:00</div>
+    <div class="column col-6 meta-title">Minute taker</div>
+    <div class="column col-6">rzimmerm</div>
+</div>
+<h2 id="attendees">Attendees</h2>
+<ul>
+<li>Fabian Hauser, fhauser</li>
+<li>Raphael Zimmermann, rzimmerm</li>
+</ul>
+<h2 id="agenda">Agenda</h2>
+<ol>
+<li>Project Kickoff</li>
+<li>Infrastructure improvements</li>
+<li>Discuss Agenda MeF<ul>
+<li>&quot;Finalization of Task description&quot;: The Task description is complete from our point of view.</li>
+<li>&quot;Questions regarding role MeF and project information page <a href="https://wiki.hsr.ch/FarhadMehta/wiki.cgi?ProjectInformation">https://wiki.hsr.ch/FarhadMehta/wiki.cgi?ProjectInformation</a>&quot;: Our project website at <a href="https://www.redbackup.org">https://www.redbackup.org</a> contains all required point.<ul>
+<li>No passwords are required due to public read-only access to the Issue Tracker / CI / Source Repository.</li>
+</ul>
+</li>
+<li>&quot;Demonstration of Project infrastructure (Redmine, Git, CI).&quot;: Our Infrastructure is ready. We will demo it using the overview page of our website.</li>
+<li>&quot;Rough project plan with Milestones&quot;: Is part of the first sprint (See <a href="/.2017-09-18-sprint-1.md">Sprint Planning Sprint 1</a>)</li>
+<li>&quot;Date and time for next meeting&quot;: We suggest to meet every Friday at 15:15.</li>
+</ul>
+</li>
+<li>Preparation Meeting 22.9.17. In addition to the Agenda provided by MeF, we want to discuss the following Topics <ul>
+<li>Language evaluation: We did not have the time to learn Rust and Erlang during the summer. To create a prototype in both languages will be too much work from our point of view. We must also discuss the (missing) tooling in both ecosystem (Code Coverage, Metrics etc.)</li>
+<li>If desired by MeF, we can grant access to our project calendar</li>
+<li>How should we log time for Infrastructure setup since it is not exclusively for the SA (BA as well)?</li>
+<li>Set a fixed weekly timeslot for our meetings</li>
+<li>Documentation: Are there any requirements for the document layout (HSR CI). We are also not sure what the following paragraph from the <a href="https://wiki.hsr.ch/FarhadMehta/wiki.cgi?ProjectInformation">Project Information Page</a> implies: &quot;All submissions must conform to the relevant regulations of the Computer Science Department at HSR.&quot;</li>
+</ul>
+</li>
+</ol>
+<h2 id="decisions">Decisions</h2>
+<h3 id="1-project-kickoff">1. Project Kickoff</h3>
+<ul>
+<li>We will use <a href="https://datasift.github.io/gitflow/IntroducingGitFlow.html">Git Flow</a> in the future but for now, <a href="https://guides.github.com/introduction/flow/">Github Flow</a> is enough</li>
+<li>We created a new calendar on the HSR Exchange server for all events related to the project.</li>
+<li>All tasks (including project management, administration and documentation) must be created in the redbackup prototype JIRA project.</li>
+<li>All sprints end on Tuesday 10:00 am. The sprint planning for the next iteration starts at the same time.</li>
+<li>We estimate and log work rounded to the next 15 minutes.</li>
+</ul>
+<h3 id="2-infrastructure-improvements">2. Infrastructure improvements</h3>
+<ul>
+<li>The new bamboo agent must create working builds.</li>
+</ul>
+<h2 id="open-issues">Open issues</h2>
+<p><em>open issues must be completed before the next meeting</em></p>
+<ul>
+<li>schedule all open issues for the next sprint</li>
+<li>Setup <a href="https://de.sharelatex.com/blog/2013/02/16/using-latexdiff-for-marking-changes-to-tex-documents.html">latexdiff</a> in CI to be able to create diff-pdf for easier reviews.</li>
+<li>Setup latex template for the project plan and the final submission document</li>
+<li>Setup proper backup solution<ul>
+<li>Use borg to transfer binary diff</li>
+<li>Dump the Postgres databases</li>
+<li>Store the backups on the workstation at HSR</li>
+</ul>
+</li>
+<li>Add license notice to the website.</li>
+<li>Set JIRA project to public readable</li>
+</ul>
+<h2 id="upcoming-absences">Upcoming absences</h2>
+<p><em>no upcoming absences</em></p>
+<h2 id="next-meeting">Next Meeting</h2>
+<ul>
+<li><a href="../2017-09-22-kickoff/index.html">Kickoff Meeting with MeF, 22.09.2017 15:15</a></li>
+</ul>
+
+    <footer>
+        &copy; the redbackup collective. Content on this website is available under the <a href="https://www.gnu.org/copyleft/fdl.html">GNU FDL</a>, unless noted differently.
+    </footer>
+</section>
+</body>
+</html>
